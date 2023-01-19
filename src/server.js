@@ -10,16 +10,20 @@ const app = express();
 app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/build")));
-    app.get("/*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-    });
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  });
 }
+
+app.all("*", function (req, res) {
+  res.redirect(process.env.PROD_CLIENT_SITE || "http://localhost:3000");
+});
 
 const server = new http.Server(app);
 
 socket(server);
 
 server.listen(process.env.PORT || 5000, () => {
-    console.log("Socket listening!");
+  console.log("Socket listening!");
 });
