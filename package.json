@@ -1,0 +1,30 @@
+{
+  "name": "typing-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "babel src/ -d dist",
+    "start": "npm run build && node dist/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "react-icons": "^4.1.0",
+    "react-textarea-autosize": "^8.3.0",
+    "socket.io": "^3.0.3",
+    "styled-components-breakpoint": "^3.0.0-preview.20",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
